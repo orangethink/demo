@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style type="text/css">
+
+		  *{
+		    /* 初始化 */
+		    margin: 0;
+		    padding: 0;
+		}
+		a{
+			text-decoration: none;
+			  color: #4D5656;
+		}
+		body{
+		    /* 100%窗口宽度和高度 */
+		    width: 100vw;
+		    height: 100vh;
+		    overflow-y: scroll;
+		    overflow-x: hidden;
+		}
+		body div{
+		    /* 100%窗口宽度和高度 */
+		    width: 100vw;
+		    height: 100vh;
+		    /* 弹性布局 居中 */
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    /* 通过var函数调用自定义属性--c，设置各个div的背景颜色 */
+		    background-color: var(--c);
+		    color: #fff;
+		}
+		
+		#nav-menu {
+		  padding: 2em;
+		  z-index: 1;
+		  background-color: #ecf0f3;
+		  border-radius: 15px;
+  /* 拟态实现关键 */
+		  box-shadow: 5px 5px 10px #b1b4b6, -5px -5px 10px #ffffff;
+		}
+		h1{
+			text-align: center; 
+			color: rgba(255, 255, 255, 0);
+			position: relative;
+		}
+		h1::before{
+			content: attr(data-text);
+			position: absolute;
+			color: #71b3dd;
+			width: 100px;
+			white-space: nowrap;
+			overflow: hidden;
+			border-right: 4px solid #fff;
+  /* 实现文字动起来的效果 */
+			animation:  am 8s linear infinite;
+		}
+		nav a {
+		text-shadow:none;
+		  margin-left: 32px;
+		  color: #4D5656;
+		  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+		-webkit-user-select: none;
+		-moz-user-focus: none;
+		-moz-user-select: none;
+		}
+		nav a:hover{
+		 color: #71b3dd;
+		}
+		@keyframes am{
+			0%,10%,100%{
+				width: 0;
+			}
+			70%,90%{
+				width: 100%;
+			}
+		}
+		 @media(max-width:767px) {
+		 body{
+		 	font-size: 1em !important;
+		 }
+		#nav-menu{
+			padding: 1.5em;
+		}
+		nav a {
+			margin-left:0;
+		}
+		 }
+		  </style>
+	</head>
+	<body >
+		<!-- --c为自定义属性（颜色值），可通过var函数进行调用 -->
+		        <div style="--c:#ecf0f3;flex-wrap: wrap;">
+		<div style="height: 50%;"><h1 data-text="— 欢迎访问 —">— 欢迎访问 —</h1></div>
+					<!-- 导航开始 -->
+									<nav id="nav-menu">
+										<a href="#" data-rel="home-me-section" class="" style="">博客</a>
+										<a href="#" data-rel="about-exp-section" style="" class="">公众号</a>
+										<a href="#" data-rel="course-exp-section" style="" class="">Github</a>
+										<a href="#" data-rel="website-exp-section" style="" class="active">实验室</a>
+																		<a href="#" data-rel="website-exp-section" style="" class="active">导航站</a>
+										</nav>
+		
+					
+				</div>
+	</body>
+</html>
