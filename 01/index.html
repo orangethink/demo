@@ -2,8 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>欢迎访问陌橙离家的小屋</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<style type="text/css">
 
 		  *{
@@ -33,6 +34,7 @@
 		    /* 通过var函数调用自定义属性--c，设置各个div的背景颜色 */
 		    background-color: var(--c);
 		    color: #fff;
+		 
 		}
 		
 		#nav-menu {
@@ -40,8 +42,18 @@
 		  z-index: 1;
 		  background-color: #ecf0f3;
 		  border-radius: 15px;
-  /* 拟态实现关键 */
+ /* 拟态实现关键 */
 		  box-shadow: 5px 5px 10px #b1b4b6, -5px -5px 10px #ffffff;
+		}
+		#nav-menu img{
+			opacity:0;
+			position: fixed;
+			left: 30%;
+			bottom: 22%;
+		}
+		/*使用opacity和position来实现鼠标悬停显示图片效果*/
+		#mp:hover ~ img{
+			opacity:1
 		}
 		h1{
 			text-align: center; 
@@ -58,19 +70,25 @@
 			border-right: 4px solid #fff;
   /* 实现文字动起来的效果 */
 			animation:  am 8s linear infinite;
+			/* filter: drop-shadow(0 0 20px #fff); */
 		}
 		nav a {
-		text-shadow:none;
+			text-shadow:none;
 		  margin-left: 32px;
 		  color: #4D5656;
 		  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-		-webkit-user-select: none;
-		-moz-user-focus: none;
-		-moz-user-select: none;
+		  		-webkit-user-select: none;
+		  		-moz-user-focus: none;
+		  		-moz-user-select: none;
 		}
 		nav a:hover{
-		 color: #71b3dd;
+			  color: #71b3dd;
+          	font-weight: bolder;
 		}
+          footer{
+          position: fixed;
+          bottom: 15px;
+          }
 		@keyframes am{
 			0%,10%,100%{
 				width: 0;
@@ -81,10 +99,11 @@
 		}
 		 @media(max-width:767px) {
 		 body{
-		 	font-size: 1em !important;
+		 	font-size: 0.8em !important;
 		 }
 		#nav-menu{
 			padding: 1.5em;
+          font-size: 1.1em;
 		}
 		nav a {
 			margin-left:0;
@@ -95,17 +114,20 @@
 	<body >
 		<!-- --c为自定义属性（颜色值），可通过var函数进行调用 -->
 		        <div style="--c:#ecf0f3;flex-wrap: wrap;">
-		<div style="height: 50%;"><h1 data-text="— 欢迎访问 —">— 欢迎访问 —</h1></div>
+		<div style="height: 50%;"><h1 data-text="— 欢迎访问陌橙离家的小屋 —">— 欢迎访问陌橙离家的小屋 —</h1></div>
 					<!-- 导航开始 -->
 									<nav id="nav-menu">
-										<a href="#" data-rel="home-me-section" class="" style="">博客</a>
-										<a href="#" data-rel="about-exp-section" style="" class="">公众号</a>
-										<a href="#" data-rel="course-exp-section" style="" class="">Github</a>
-										<a href="#" data-rel="website-exp-section" style="" class="active">实验室</a>
-																		<a href="#" data-rel="website-exp-section" style="" class="active">导航站</a>
+										<a href="#" ><i class="fa fa-fw  fa-handshake-o"></i>导航站</a>
+										<a id="mp" href="https://www.mochengli.cn/link_photo/mochengli_mp.png"><i class="fa fa-fw  fa-newspaper-o"></i>公众号</a>
+										<img src="https://www.mochengli.cn/link_photo/mochengli_mp.png" />
+                                      <a href="/index.php" style="	font-weight: bolder;" data-rel="home-me-section"><i class="fa fa-fw  fa-book"></i>博客</a>
+                                      <a href="https://github.com/orangethink"><i class="fa fa-fw  fa-github"></i>Github</a>
+										<a href="/lab" data-rel="website-exp-section"><i class="fa fa-fw  fa-hdd-o"></i>实验室</a>
+																		
 										</nav>
 		
-					
+                  <footer style="color: #4D5656;">Copyright ©2022 OrangeThinK 1.0 <a class="fa fa-handshake-o" href="https://www.mochengli.cn/about#friends">友联</a></footer>
 				</div>
+     
 	</body>
 </html>
